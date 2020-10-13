@@ -1,0 +1,12 @@
+n = 50
+
+def combinations(m, n):
+    sol = [1] * m + [0] * (n-m+1)
+    for j in range(m, n+1):
+        sol[j] += sol[j - 1] + sol[j - m]
+    return sol[n] - 1
+
+def solution():
+    return combinations(2, n) + combinations(3, n) + combinations(4, n)
+
+print("Number of ways to fill:", solution())
